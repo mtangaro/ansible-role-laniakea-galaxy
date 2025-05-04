@@ -1,23 +1,18 @@
 galaxy_info:
   author: Pietro Mandreoli, Martina Alverà, Marco Tangaro
-  description: Install Galaxy workflow manager (production environment) on Ubuntu + postresql, nginx, uwsgi, proftpd
+  description: Install Galaxy workflow manager (production environment) on Ubuntu + postresql, nginx, gravity, tusd
   company: Università degli Studi di Milano, IBIOM-CNR
   role_name: galaxy
-  min_ansible_version: 2.9
+  min_ansible_version: "2.10"
   license: GPLv3
   platforms:
-    - name: Ubuntu
-      versions: 
-        - Xenial
     - name: EL
       versions:
-        - 7
+        - "7"
+        - "9"
   galaxy_tags:
     - galaxy
     - web
 
 dependencies:
-  - role: indigo-dc.docker
-    vars:
-      docker_config:  { "data-root": "{{ export_dir }}/docker_image", }
-    when: enable_galaxy_ie
+  - role: ansible-cvmfs

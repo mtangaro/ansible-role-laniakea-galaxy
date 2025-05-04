@@ -1,8 +1,9 @@
 ---
 - name: Include miniconda role
   include_role:
-    name: uchida.miniconda
+    name: ansible-miniconda
     public: true 
   vars:
-    miniconda_prefix: "{{ laniakea_conda_prefix }}"
-    miniconda_version: "4.6.14"
+    miniconda_prefix: "{{ laniakea_miniconda_prefix }}"
+    miniconda_version: "{{ laniakea_miniconda_version }}"
+    miniconda_manage_dependencies: "{{ laniakea_manage_dependencies }}"
